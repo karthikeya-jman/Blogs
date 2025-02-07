@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const { app } = require('../app');
+const blogRoutes = require("./routes/blogRoutes")
 
 const blogSchema = new mongoose.Schema({
   title: { type: String, required: true },
@@ -16,4 +18,5 @@ const blogSchema = new mongoose.Schema({
 
 const Blog = mongoose.model('Blog', blogSchema);
 
-module.exports = Blog;
+module.exports = Blog;app.use("/api/", blogRoutes)
+

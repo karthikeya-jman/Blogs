@@ -15,9 +15,11 @@ exports.createBlog = async(req,res) =>{
     try {
         const blogDetails = req.body;
         const newBlog = await blogServices.createNewBlog(blogDetails)
-        res.status(201).json({message : "error creating blogs" + error.message})
+        res.status(201).json(newBlog)
         
     } catch (error) {
+        res.status(500).json({message : "error creating blogs" + error.message})
+
         
     }
 }

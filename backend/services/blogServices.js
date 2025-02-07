@@ -4,7 +4,7 @@ const getAllBlogs = async () =>{
     try {
 
         const blogs = await Blog.find()
-        return users;
+        return blogs;
         
     } catch (error) {
         console.log("error while getting all blogs"+error.message);
