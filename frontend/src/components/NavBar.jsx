@@ -1,6 +1,12 @@
 import React from 'react'
+import CreateForm from './CreateForm'
 
-const NavBar = () => {
+
+
+const NavBar = ({onToggleForm}) => {
+
+  
+
   return (
     <div className='flex items-center justify-between px-15 py-3 '>
         <div className='flex items-center gap-3'>
@@ -16,7 +22,9 @@ const NavBar = () => {
         </ul>
 
         <div>
-            <button className='bg-blue-500 rounded-full px-10 py-1 text-white font-medium text-lg'>Create</button>
+            <button 
+            onClick={onToggleForm}
+            className='bg-blue-500 rounded-full px-10 py-1 text-white font-medium text-lg'>Create</button>
         </div>
     </div>
   )
