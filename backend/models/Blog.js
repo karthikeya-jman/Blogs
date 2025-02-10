@@ -7,14 +7,13 @@ const blogSchema = new mongoose.Schema({
   genre: { type: String, required: true }, 
   comments: [
     {
-    //   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
       commentText: { type: String, required: true },
       createdAt: { type: Date, default: Date.now }
     }
   ],
   likes: { type: Number, default: 0 },
   views: { type: Number, default: 0 },
-}, { timestamps: true }); // Automatically adds createdAt and updatedAt fields
+}, { timestamps: true }); 
 
 const Blog = mongoose.model('Blog', blogSchema);
 

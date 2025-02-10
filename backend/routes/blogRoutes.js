@@ -13,7 +13,6 @@ const {
   deleteBlog
 } = require("../controllers/blogControllers");
 
-// ✅ GET all blogs
 router.get("/blogs", async (req, res) => {
   try {
     const blogs = await getAllBlogs();
@@ -23,7 +22,6 @@ router.get("/blogs", async (req, res) => {
   }
 });
 
-// ✅ GET blog by ID
 router.get("/blogs/:id", async (req, res) => {
   try {
     const blog = await getBlogById(req.params.id);
@@ -33,7 +31,6 @@ router.get("/blogs/:id", async (req, res) => {
   }
 });
 
-// ✅ Search blogs by title or content
 router.get("/blogs/search/:query", async (req, res) => {
   try {
     const blogs = await searchBlogs(req.params.query);
@@ -43,7 +40,6 @@ router.get("/blogs/search/:query", async (req, res) => {
   }
 });
 
-// ✅ Filter blogs by genre
 router.get("/blogs/genre/:genre", async (req, res) => {
   try {
     const blogs = await filterBlogsByGenre(req.params.genre);
@@ -53,7 +49,6 @@ router.get("/blogs/genre/:genre", async (req, res) => {
   }
 });
 
-// ✅ POST a new blog
 router.post("/blogs", async (req, res) => {
   try {
     const newBlog = await createNewBlog(req.body);
@@ -63,7 +58,6 @@ router.post("/blogs", async (req, res) => {
   }
 });
 
-// ✅ PUT update a blog
 router.put("/blogs/:id", async (req, res) => {
   try {
     const updatedBlog = await updateBlog(req.params.id, req.body);
@@ -73,7 +67,6 @@ router.put("/blogs/:id", async (req, res) => {
   }
 });
 
-// ✅ PATCH like a blog
 router.patch("/blogs/:id/like", async (req, res) => {
   try {
     const updatedBlog = await likeBlog(req.params.id);
@@ -83,7 +76,6 @@ router.patch("/blogs/:id/like", async (req, res) => {
   }
 });
 
-// ✅ PATCH increase blog views
 router.patch("/blogs/:id/view", async (req, res) => {
   try {
     const updatedBlog = await increaseViews(req.params.id);
@@ -93,7 +85,6 @@ router.patch("/blogs/:id/view", async (req, res) => {
   }
 });
 
-// ✅ POST add a comment to a blog
 router.post("/blogs/:id/comment", async (req, res) => {
   try {
     const updatedBlog = await addComment(req.params.id, req.body.commentText);
@@ -103,7 +94,6 @@ router.post("/blogs/:id/comment", async (req, res) => {
   }
 });
 
-// ✅ DELETE blog
 router.delete("/blogs/:id", async (req, res) => {
   try {
     await deleteBlog(req.params.id);

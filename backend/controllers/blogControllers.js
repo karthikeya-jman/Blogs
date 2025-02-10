@@ -1,6 +1,5 @@
 const Blog = require("../models/Blog");
 
-// ✅ Fetch all blogs
 const getAllBlogs = async () => {
   try {
     return await Blog.find();
@@ -9,7 +8,6 @@ const getAllBlogs = async () => {
   }
 };
 
-// ✅ Fetch blog by ID
 const getBlogById = async (id) => {
   try {
     return await Blog.findById(id);
@@ -18,7 +16,6 @@ const getBlogById = async (id) => {
   }
 };
 
-// ✅ Search blogs by title or content
 const searchBlogs = async (query) => {
   try {
     return await Blog.find({
@@ -32,7 +29,6 @@ const searchBlogs = async (query) => {
   }
 };
 
-// ✅ Filter blogs by genre
 const filterBlogsByGenre = async (genre) => {
   try {
     return await Blog.find({ genre });
@@ -41,7 +37,6 @@ const filterBlogsByGenre = async (genre) => {
   }
 };
 
-// ✅ Create a new blog
 const createNewBlog = async (blogDetails) => {
   try {
     const newBlog = new Blog(blogDetails);
@@ -53,7 +48,6 @@ const createNewBlog = async (blogDetails) => {
   }
 };
 
-// ✅ Update a blog
 const updateBlog = async (id, updatedData) => {
   try {
     return await Blog.findByIdAndUpdate(id, updatedData, { new: true });
@@ -62,7 +56,6 @@ const updateBlog = async (id, updatedData) => {
   }
 };
 
-// ✅ Like a blog
 const likeBlog = async (id) => {
   try {
     return await Blog.findByIdAndUpdate(id, { $inc: { likes: 1 } }, { new: true });
@@ -71,7 +64,6 @@ const likeBlog = async (id) => {
   }
 };
 
-// ✅ Increase blog views
 const increaseViews = async (id) => {
   try {
     return await Blog.findByIdAndUpdate(id, { $inc: { views: 1 } }, { new: true });
@@ -80,7 +72,6 @@ const increaseViews = async (id) => {
   }
 };
 
-// ✅ Add a comment to a blog
 const addComment = async (id, commentText) => {
   try {
     return await Blog.findByIdAndUpdate(
@@ -111,5 +102,5 @@ module.exports = {
   likeBlog,
   increaseViews,
   addComment,
-  deleteBlog, // ✅ Export delete function
+  deleteBlog, 
 };

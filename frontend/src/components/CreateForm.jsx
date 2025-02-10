@@ -24,11 +24,9 @@ const CreateForm = ({ onToggleForm, initialData, onSubmit,updateBlogs }) => {
     e.preventDefault();
     try {
       if (initialData) {
-        // Update existing blog
         await axios.put(`http://localhost:3000/api/blogs/${initialData._id}`, formData);
         alert("Blog updated successfully!");
       } else {
-        // Create new blog
         await axios.post("http://localhost:3000/api/blogs", formData);
         alert("Blog created successfully!");
       }
